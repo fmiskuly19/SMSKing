@@ -1,4 +1,4 @@
-const Discord = require('Discord.js');
+const Discord = require('discord.js');
 
 module.exports.run = async (bot, message, args) => {
     let channelType = message.channel.type;

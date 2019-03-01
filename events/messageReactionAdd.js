@@ -1,4 +1,4 @@
-const Discord = require('Discord.js');
+const Discord = require('discord.js');
 
 module.exports = async (bot, messageReaction) => {
     if(messageReaction.message.author.id == 527962850552184883){
