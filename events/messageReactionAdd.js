@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 
 module.exports = async (bot, messageReaction) => {
-    if(messageReaction.message.author.id == 527962850552184883){
+    if(messageReaction.message.author.id == 527962850552184883 && 
+        messageReaction.message.embeds[0].message.content === "React to me to secure this spot!"){
 
         //user that reacted to the queue
         let user = messageReaction.users.entries().next().value[1];
@@ -12,7 +13,8 @@ module.exports = async (bot, messageReaction) => {
         let queue = bot.queue.find(q => q.id = queueID);
         
         if(!queue){
-            return user.send("I could not find the queue position you reacted to! That queue spot has already been claimed or does not exist.");
+            console.log("queue position was already claimed");
+            return;
         }
 
         var embed = new Discord.RichEmbed()
