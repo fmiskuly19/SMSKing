@@ -7,7 +7,6 @@ fs.readdir("./events/", (err, files) => {
   files.forEach(file => {
     const event = require(`./events/${file}`);
     let eventName = file.split(".")[0];
-    //bind events to module
     bot.on(eventName, event.bind(null, bot));
   });
 });
@@ -23,5 +22,8 @@ fs.readdir("./commands/", (err, files) => {
     console.log(`Loaded command ${commandName}`);
   });
 });
+
+//queue for donate commands
+bot.queue = [];
 
 bot.login(process.env.DISCORD_TOKEN);
