@@ -12,9 +12,7 @@ module.exports = async (bot, messageReaction) => {
         let queue = bot.queue.find(q => q.id = queueID);
         
         if(!queue){
-            return messageReaction.message.channel.send(
-                "<@" + user.id + ">, I could not find the queue position you reacted to! " + 
-                "That queue spot has already been claimed or does not exist.");
+            return user.send("I could not find the queue position you reacted to! That queue spot has already been claimed or does not exist.");
         }
 
         var embed = new Discord.RichEmbed()
@@ -37,7 +35,6 @@ module.exports = async (bot, messageReaction) => {
         console.log('queue removed');
 
         console.log(bot.queue);
-
 
     }   
 }
