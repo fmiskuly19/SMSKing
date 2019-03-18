@@ -30,7 +30,10 @@ module.exports.run = async (bot, message, args) => {
                     .addField('Place in queue', place)
                     .addField('TicketKings queue ID: ', queueID);
 
-    channel.send("React to me to secure this spot!",{embed});
+    channel.send("React to me to secure this spot!",{embed}).then(message => {
+        const emoji = message.guild.emojis.find(e => e.name == "ticketkings");
+        message.react(emoji.id);
+    });
     adminChannel.send("<@" + message.author.id + "> donated a queue position for " + eventName);
 }
 
